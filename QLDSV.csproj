@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CB1ADAD-1D21-4914-B2D9-85FC4017E374}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QLDSV</RootNamespace>
+    <AssemblyName>QLDSV</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\CtrChiTietLichDay.cs" />
+    <Compile Include="Control\CtrDangNhap.cs" />
+    <Compile Include="Control\CtrDiemDanh.cs" />
+    <Compile Include="Control\CtrDiemDanhLop.cs" />
+    <Compile Include="Control\CtrDiemLop.cs" />
+    <Compile Include="Control\CtrDiemLopMon.cs" />
+    <Compile Include="Control\CtrGiaoVien.cs" />
+    <Compile Include="Control\CtrKhoa.cs" />
+    <Compile Include="Control\CtrLichDay.cs" />
+    <Compile Include="Control\CtrPhongHoc.cs" />
+    <Compile Include="Model\Connect.cs" />
+    <Compile Include="Control\CTR.cs" />
+    <Compile Include="Control\CtrDiem.cs" />
+    <Compile Include="Control\CtrHinhThuc.cs" />
+    <Compile Include="Control\CtrHocKy.cs" />
+    <Compile Include="Control\CtrKhoaHoc.cs" />
+    <Compile Include="Control\CtrLopHoc.cs" />
+    <Compile Include="Control\CtrMonHoc.cs" />
+    <Compile Include="Control\CtrNganhHoc.cs" />
+    <Compile Include="Control\CtrSinhVien.cs" />
+    <Compile Include="Model\ModChiTietLichDay.cs" />
+    <Compile Include="Model\ModDangNhap.cs" />
+    <Compile Include="Model\ModDiemDanh.cs" />
+    <Compile Include="Model\ModDiemDanhLop.cs" />
+    <Compile Include="Model\ModDiemLop.cs" />
+    <Compile Include="Model\ModDiemLopMon.cs" />
+    <Compile Include="Model\ModGiaoVien.cs" />
+    <Compile Include="Model\ModKhoa.cs" />
+    <Compile Include="Model\ModLichDay.cs" />
+    <Compile Include="Model\ModPhongHoc.cs" />
+    <Compile Include="Object\OjbChiTietLichDay.cs" />
+    <Compile Include="Object\OjbDiemDanh.cs" />
+    <Compile Include="Object\OjbDiemDanhLop.cs" />
+    <Compile Include="Object\OjbDiemLopMon.cs" />
+    <Compile Include="Object\OjbGiaoVien.cs" />
+    <Compile Include="Object\OjbKhoa.cs" />
+    <Compile Include="Object\OjbLichDay.cs" />
+    <Compile Include="Object\OjbLichHocLop.cs" />
+    <Compile Include="Object\OjbLopMon.cs" />
+    <Compile Include="Object\OjbPhongHoc.cs" />
+    <Compile Include="Object\OjbTest.cs" />
+    <Compile Include="Object\OjbUser.cs" />
+    <Compile Include="QLDSVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLDSVDataSet1.cs">
+      <DependentUpon>QLDSVDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLDSVDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSVDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormDiemLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormDiemLop.Designer.cs">
+      <DependentUpon>FormDiemLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormDiemLopMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormDiemLopMon.Designer.cs">
+      <DependentUpon>FormDiemLopMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormDiemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormDiemSinhVien.Designer.cs">
+      <DependentUpon>FormDiemSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormHocLai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormHocLai.Designer.cs">
+      <DependentUpon>FormHocLai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormLopKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormLopKhoa.Designer.cs">
+      <DependentUpon>FormLopKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormMonNganh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormMonNganh.Designer.cs">
+      <DependentUpon>FormMonNganh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormReportLichHocLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormReportLichHocLop.Designer.cs">
+      <DependentUpon>FormReportLichHocLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormRPDiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormRPDiemDanh.Designer.cs">
+      <DependentUpon>FormRPDiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FormSinhVienLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormSinhVienLop.Designer.cs">
+      <DependentUpon>FormSinhVienLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChiTietDiem.Designer.cs">
+      <DependentUpon>ChiTietDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietDiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChiTietDiemDanh.Designer.cs">
+      <DependentUpon>ChiTietDiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietLichDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChiTietLichDay.Designer.cs">
+      <DependentUpon>ChiTietLichDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietLichDayGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChiTietLichDayGiaoVien.Designer.cs">
+      <DependentUpon>ChiTietLichDayGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietLichHocLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChiTietLichHocLop.Designer.cs">
+      <DependentUpon>ChiTietLichHocLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietLichPhongHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ChiTietLichPhongHoc.Designer.cs">
+      <DependentUpon>ChiTietLichPhongHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormDiem.Designer.cs">
+      <DependentUpon>FormDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormDiemDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormDiemDanh.Designer.cs">
+      <DependentUpon>FormDiemDanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormGiaoVien.Designer.cs">
+      <DependentUpon>FormGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormHocKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormHocKi.Designer.cs">
+      <DependentUpon>FormHocKi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormInsertSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormInsertSV.Designer.cs">
+      <DependentUpon>FormInsertSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormKhoa.Designer.cs">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormKhoaHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormKhoaHoc.Designer.cs">
+      <DependentUpon>FormKhoaHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLichDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLichDay.Designer.cs">
+      <DependentUpon>FormLichDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLichHocLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLichHocLop.Designer.cs">
+      <DependentUpon>FormLichHocLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLopHoc.Designer.cs">
+      <DependentUpon>FormLopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLopMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLopMon.Designer.cs">
+      <DependentUpon>FormLopMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMDI.Designer.cs">
+      <DependentUpon>FormMDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMonHoc.Designer.cs">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormHinhThuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormHinhThuc.Designer.cs">
+      <DependentUpon>FormHinhThuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MOD.cs" />
+    <Compile Include="Model\ModDiem.cs" />
+    <Compile Include="Model\ModHinhThuc.cs" />
+    <Compile Include="Model\ModHocKy.cs" />
+    <Compile Include="Model\ModKhoaHoc.cs" />
+    <Compile Include="Model\ModLopHoc.cs" />
+    <Compile Include="Model\ModMonHoc.cs" />
+    <Compile Include="Model\ModNganhHoc.cs" />
+    <Compile Include="Model\ModSinhVien.cs" />
+    <Compile Include="View\FormNganhHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormNganhHoc.Designer.cs">
+      <DependentUpon>FormNganhHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Object\OJB.cs" />
+    <Compile Include="Object\OjbDiem.cs" />
+    <Compile Include="Object\OjbHinhThuc.cs" />
+    <Compile Include="Object\OjbHocKy.cs" />
+    <Compile Include="Object\OjbKhoaHoc.cs" />
+    <Compile Include="Object\OjbLopHoc.cs" />
+    <Compile Include="Object\OjbMonHoc.cs" />
+    <Compile Include="Object\OjbNganhHoc.cs" />
+    <Compile Include="Object\OjbSinhVien.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="View\FormPhongHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormPhongHoc.Designer.cs">
+      <DependentUpon>FormPhongHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormSinhVien.Designer.cs">
+      <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTaiKhoan.Designer.cs">
+      <DependentUpon>FormTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FromInsertDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FromInsertDiem.Designer.cs">
+      <DependentUpon>FromInsertDiem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormDiemLop.resx">
+      <DependentUpon>FormDiemLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormDiemSinhVien.resx">
+      <DependentUpon>FormDiemSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormHocLai.resx">
+      <DependentUpon>FormHocLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormLopKhoa.resx">
+      <DependentUpon>FormLopKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormMonNganh.resx">
+      <DependentUpon>FormMonNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormReportLichHocLop.resx">
+      <DependentUpon>FormReportLichHocLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormRPDiemDanh.resx">
+      <DependentUpon>FormRPDiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\FormSinhVienLop.resx">
+      <DependentUpon>FormSinhVienLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportDiemDanh.rdlc" />
+    <EmbeddedResource Include="Report\ReportDiemLop.rdlc" />
+    <EmbeddedResource Include="Report\FormDiemLopMon.resx">
+      <DependentUpon>FormDiemLopMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\.rdlc" />
+    <EmbeddedResource Include="Report\ReportDIemLopMon.rdlc" />
+    <EmbeddedResource Include="Report\ReportDiemSinhVien.rdlc" />
+    <EmbeddedResource Include="Report\ReportHocLai.rdlc" />
+    <EmbeddedResource Include="Report\ReportLichHocLop.rdlc" />
+    <EmbeddedResource Include="Report\ReportLopKhoa.rdlc" />
+    <EmbeddedResource Include="Report\ReportMonNganh.rdlc" />
+    <EmbeddedResource Include="Report\ReportSinhVienLop.rdlc" />
+    <EmbeddedResource Include="View\ChiTietDiem.resx">
+      <DependentUpon>ChiTietDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChiTietDiemDanh.resx">
+      <DependentUpon>ChiTietDiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChiTietLichDay.resx">
+      <DependentUpon>ChiTietLichDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChiTietLichDayGiaoVien.resx">
+      <DependentUpon>ChiTietLichDayGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChiTietLichHocLop.resx">
+      <DependentUpon>ChiTietLichHocLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChiTietLichPhongHoc.resx">
+      <DependentUpon>ChiTietLichPhongHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormDiem.resx">
+      <DependentUpon>FormDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormDiemDanh.resx">
+      <DependentUpon>FormDiemDanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormGiaoVien.resx">
+      <DependentUpon>FormGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormHocKi.resx">
+      <DependentUpon>FormHocKi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormInsertSV.resx">
+      <DependentUpon>FormInsertSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormKhoa.resx">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormKhoaHoc.resx">
+      <DependentUpon>FormKhoaHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLichDay.resx">
+      <DependentUpon>FormLichDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLichHocLop.resx">
+      <DependentUpon>FormLichHocLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLopHoc.resx">
+      <DependentUpon>FormLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLopMon.resx">
+      <DependentUpon>FormLopMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormMDI.resx">
+      <DependentUpon>FormMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormMonHoc.resx">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormHinhThuc.resx">
+      <DependentUpon>FormHinhThuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormNganhHoc.resx">
+      <DependentUpon>FormNganhHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormPhongHoc.resx">
+      <DependentUpon>FormPhongHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormSinhVien.resx">
+      <DependentUpon>FormSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTaiKhoan.resx">
+      <DependentUpon>FormTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FromInsertDiem.resx">
+      <DependentUpon>FromInsertDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Connect.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\FormDangNhap.datasource" />
+    <None Include="Properties\DataSources\FormHinhThuc.datasource" />
+    <None Include="Properties\DataSources\FormHocKi.datasource" />
+    <None Include="Properties\DataSources\FormKhoaHoc.datasource" />
+    <None Include="Properties\DataSources\FormMDI.datasource" />
+    <None Include="Properties\DataSources\FormMonHoc.datasource" />
+    <None Include="Properties\DataSources\FormNganhHoc.datasource" />
+    <None Include="Properties\DataSources\OJBDiemSinhVien.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CTR.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrChiTietLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrDangNhap.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrDiem.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrDiemDanh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrDiemDanhLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrDiemLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrDiemLopMon.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrGiaoVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrHinhThuc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrHocKy.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrKhoa.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrKhoaHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrLopHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrMonHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrNganhHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrPhongHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Control.CtrSinhVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.MOD.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModChiTietLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModDangNhap.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModDiem.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModDiemDanh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModDiemDanhLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModDiemLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModDiemLopMon.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModGiaoVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModHinhThuc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModHocKy.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModKhoa.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModKhoaHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModLopHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModMonHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModNganhHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModPhongHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Model.ModSinhVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.Ngay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbChiTietLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbDiem.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbDiemDanh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbDiemDanhLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbDiemLopMon3.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbDiemLopMon4.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbGiaoVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbKhoaHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbLichHocLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbLopHoc1.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbMonHoc1.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbNganhHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbSinhVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Object.OjbTest.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.DataTable1TableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.DiemTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.HinhThucTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.HocKyTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.KhoaHocTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.LopHocTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.MonHocTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.NganhHocTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.SinhVienTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSet1TableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSetTableAdapters.DiemLop2TableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSetTableAdapters.DiemLopTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSetTableAdapters.QueriesTableAdapter.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="Properties\DataSources\QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.Form1.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormDiemLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormDiemSinhVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormLopKhoa.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormMonNganh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormReport.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormRPDiemDanh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.Report.FormSinhVienLop.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.ChiTietDiemDanh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.ChiTietLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormDiem.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormDiemDanh.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormGiaoVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormInsertSV.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormKhoa.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormLichDay.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormLopHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormLopMon.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormPhongHoc.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormSinhVien.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FormTaiKhoan.datasource" />
+    <None Include="Properties\DataSources\QLDSV.View.FromInsertDiem.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLop2DataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLop2Row.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLop2RowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLop2RowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLopDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLopRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLopRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet.DiemLopRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DataTable1DataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DataTable1Row.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DataTable1RowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DataTable1RowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DiemDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DiemRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DiemRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.DiemRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HinhThucDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HinhThucRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HinhThucRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HinhThucRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HocKyDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HocKyRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HocKyRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.HocKyRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.KhoaHocDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.KhoaHocRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.KhoaHocRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.KhoaHocRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.LopHocDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.LopHocRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.LopHocRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.LopHocRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.MonHocDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.MonHocRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.MonHocRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.MonHocRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.NganhHocDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.NganhHocRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.NganhHocRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.NganhHocRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.SinhVienDataTable.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.SinhVienRow.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.SinhVienRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\QLDSVDataSet1.SinhVienRowChangeEventHandler.datasource" />
+    <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
+    <None Include="Properties\DataSources\tesstmodel.datasource" />
+    <None Include="Properties\DataSources\testReport.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="QLDSVDataSet.xsc">
+      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSVDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSVDataSet.xss">
+      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet1.xsc">
+      <DependentUpon>QLDSVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSVDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSVDataSet1.xss">
+      <DependentUpon>QLDSVDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
